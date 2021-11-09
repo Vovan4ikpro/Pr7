@@ -1,14 +1,20 @@
 <?php
-
-if(!$_POST["email"] || !$_POST["name"] || !isset($_POST["gender"])){
-  require_once('error.php');  
-   die;
+include 'uploads.php';
+$flag = false;
+if(!empty($_POST['email']) && !empty($_POST['name']) && !empty($_POST['gender'])){
+   $flag = true;
+   $name = filter_input(INPUT_POST, 'name',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+   $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+   $gender = $_POST['gender'];
+   if(!file_exists('database/users.csv')){
+      file_put_contents('database/users.csv','');
+  }
+  
+  $fp = fopen('database/users.csv','a');
+  fwrite($fp,"$name,$email,$gender,$filePath\n");
+  fclose($fp);
 }
 
-filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-filter_input(INPUT_POST, 'email', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-   // code with validation will be here and saving user will be here
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,9 +33,15 @@ filter_input(INPUT_POST, 'email', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 <body style="padding-top: 3rem;">
  
 <div class="container">
-   User Added <?php echo $_POST["name"]; ?><br>
-   Email <?php echo $_POST["email"]; ?>
-   Gender <?php echo $_POST["gender"]; ?>
+   <?php
+   if($flag){
+      echo "User Added ".$_POST['name']."<br>";
+      echo "Email ".$_POST['email'];
+      echo " Gender ".$_POST['gender'];
+   }else{
+      echo "<p style = 'color:red'>Invalid Data</p>";
+   }
+   ?>
    <hr>
    <a class="btn" href="adduser.php">return back</a>
    <a class="btn" href="table.php">view list</a>
