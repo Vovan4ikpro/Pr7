@@ -16,7 +16,7 @@ else{
       $isUploaded = true;
       } else {
          echo "File is not an image.<br>";
-         $isUploaded = true;
+         $isUploaded = false;
    }
 
    if ($_FILES["photo"]["size"] > 500000) {
