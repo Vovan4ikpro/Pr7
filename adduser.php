@@ -40,6 +40,11 @@ if (isset($_SESSION['auth']) && $_SESSION['auth'] === true){
        </div>
        <div class="row">
            <div class="field">
+               <label>Role<input type="text" name="role_id"><br></label>
+           </div>
+       </div>
+       <div class="row">
+           <div class="field">
                <label>
                    <input class="with-gap" type="radio" name="gender" value="female"/>
                    <span>Female</span>

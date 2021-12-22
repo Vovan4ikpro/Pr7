@@ -7,7 +7,8 @@ if(!empty($_POST['email']) && !empty($_POST['name']) && !empty($_POST['gender'])
    $name = filter_input(INPUT_POST, 'name',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
    $gender = $_POST['gender'];
-   $sql = "INSERT INTO users (email, name, gender, password, path_to_img) VALUES ('$email', '$name','$gender', '11111', '$filePath')";
+   $role_id = $_POST['role_id'];
+   $sql = "INSERT INTO users (email, name, gender, password, path_to_img, role_id) VALUES ('$email', '$name','$gender', '11111', '$filePath', '$role_id')";
    echo $sql;
    $res = mysqli_query($conn, $sql);
    if ($res) {

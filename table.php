@@ -27,7 +27,8 @@
                 'name' => $row['name'],
                 'email' => $row['email'],
                 'gender' => $row['gender'],
-                'path'=>"<img src='".$row['path_to_img']."'width = 100 height = 100/>"
+                'path'=>"<img src='".$row['path_to_img']."'width = 100 height = 100/>",
+                'role_id' => $row['role_id']
             ];
         }
     }
