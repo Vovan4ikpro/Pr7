@@ -8,34 +8,29 @@ class IndexController
 
    public function index()
    {
-        $error = false;
+        include_once 'app/models/UserModel.php';
 
-        if (!empty($_POST)) {
-            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $user = null;
+        $isAdmin = false;
 
-            include_once 'app/Models/UserModel.php';
-
-            $user = (new User())::get_user($this->conn, $email, $password);
-
-
-            if (count($user) < 1) {
-                $error = 'Wrong user email or password!';
-            } else {
-                $_SESSION['auth'] = true;
-                header('Location: /?controller=users&action=addForm');
-            }
+        if (isset($_SESSION['auth'])) {
+            $authId = $_SESSION['auth'];
+            $user = (new User())::one($this->conn, $authId);
         }
-    
 
-       include_once 'views/home.php';
+        if ($user['is_admin']) {
+            $isAdmin = true;
+        }
+
+        $searchField = '';
+
+        if (isset($_GET['search'])) {
+            $searchField = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        }
+
+        $users = (new User())::all($this->conn, $searchField);
+
+        include_once 'views/home.php';
    }
 
-   public function logout()
-   {
-        session_unset();
-        session_destroy();
-        
-        header('Location: /?controller=index');
-   }
 }

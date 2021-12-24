@@ -1,0 +1,73 @@
+body {
+    padding-bottom: 80px;
+}
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.main .users-table img {
+    width: auto;
+    height: 100px;
+}
+
+.regForm-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.showForm-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.error-message {
+    margin-top: 20px;
+    color: #ca2525;
+}
+
+.current-avatar, .user-avatar {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+}
+
+.comments-block h2 {
+    margin-bottom: 0;
+}
+
+.comments-block .comment-name {
+    font-size: 24px;
+}
+
+.comments-block .comment-date {
+    font-size: 16px;
+}
+
+.comments-block .comment-text {
+    font-size: 17px;
+}
+
+.user-email {
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.table-link {
+    text-decoration: none;
+}
+
+.comment-avatar {
+    width: auto;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.addUserForm-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}

@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <title>Lab 2 - Add User</title>
+    <title>Lab 2 - Sign Up</title>
   </head>
   <body>
 
@@ -24,17 +24,10 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/?controller=users&action=logout">Sign out</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
                     </ul>
-                    <form class="d-flex" action="/" method="get">
-                        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                     </div>
                 </div>
             </nav>
@@ -43,8 +36,8 @@
 
     <main class="main">
         <div class="container">
-            <div class="addUserForm-container">
-                <form class="addUserForm" id="addUserForm">
+            <div class="regForm-container">
+                <form class="regForm" id="regForm">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="email" name="email" required>
@@ -58,13 +51,6 @@
                         <input type="text" class="form-control" id="last_name" name="last_name" required>
                     </div>
                     <div class="mb-3">
-                        <label for="role" class="form-label">Role</label>
-                        <select class="form-select" name="role" id="role">
-                            <option value="user" selected>User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" required>
                     </div>
@@ -72,7 +58,7 @@
                         <label for="rePassword" class="form-label">Repeat rassword</label>
                         <input type="password" class="form-control" id="rePassword" name="rePassword" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add user</button>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
                     <div class="error-message"></div>
                 </form>
             </div>
@@ -89,7 +75,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/assets/js/main.js"></script>
   </body>

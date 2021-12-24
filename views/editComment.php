@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <title>Lab 2 - Add User</title>
+    <title>Lab 2 - Edit Comment</title>
   </head>
   <body>
 
@@ -43,39 +43,22 @@
 
     <main class="main">
         <div class="container">
-            <div class="addUserForm-container">
-                <form class="addUserForm" id="addUserForm">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="first_name" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="first_name" name="first_name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="last_name" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="last_name" name="last_name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="role" class="form-label">Role</label>
-                        <select class="form-select" name="role" id="role">
-                            <option value="user" selected>User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="rePassword" class="form-label">Repeat rassword</label>
-                        <input type="password" class="form-control" id="rePassword" name="rePassword" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add user</button>
-                    <div class="error-message"></div>
-                </form>
-            </div>
+            <h2>Edit Comment</h2>
+            <form class="editCommentForm" id="editCommentForm">
+                <p>By: <?php echo $comment['authr_first_name'].' '.$comment['authr_last_name']; ?></p>
+                <p>At: <?php echo $comment['date']; ?></p>
+                <div class="form-group">
+                    <label for="comment">Comment text</label><br><br>
+                    <textarea class="form-control" name="text" id="comment" rows="3"><?php echo $comment['text']; ?></textarea>
+                </div><br>
+                <input type="hidden" name="comment_id" value="<?php echo $comment['id']; ?>">
+                <button type="submit" class="btn btn-primary">Save comment</button>
+                <a href="/?controller=users&action=show&user_id=<?php echo $_GET['user_id']; ?>" class="btn btn-primary">Back</a>
+                <div class="error-message"></div>
+                <div class="alert alert-success" style="display: none" role="alert">
+                    Comment has been saved.
+                </div>
+            </form>
         </div>
     </main>
 
